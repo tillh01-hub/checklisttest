@@ -1,36 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <link rel="apple-touch-icon" href="icon1.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Checklist</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Checklist</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- SVG sprite: animated check -->
+<svg style="display:none" id="icons">
+  <symbol id="icon-check" viewBox="0 0 24 24">
+    <path id="checkPath" d="M20.285 6.708l-11.39 11.39-5.18-5.18 1.414-1.414 3.766 3.766 9.976-9.976z"/>
+  </symbol>
+</svg>
+
 <header class="topbar">
   <h1>Weekly Checklist</h1>
-  <a class="edit-link" href="editor.html" title="Edit Checklists">✏️</a>
+  <a class="edit-link" href="editor.html" title="Edit Checklists">Edit</a>
 </header>
 
 <main class="app">
-
-  <!-- Mode selection -->
-  <section id="prompt" class="card animate-fade">
-    <p id="promptText">Choose whether you're Day or Night for today</p>
+  <section id="prompt" class="card">
+    <p id="promptText">Are you <b>Day</b> or <b>Night</b> today?</p>
     <div class="row">
-      <button id="dayBtn" class="btn btn-day">☀️ I'm Day</button>
-      <button id="nightBtn" class="btn btn-night">🌙 I'm Night</button>
+      <button id="dayBtn" class="btn btn-day">☀️ Day Mode</button>
+      <button id="nightBtn" class="btn btn-night">🌙 Night Mode</button>
     </div>
   </section>
 
-  <!-- Checklist -->
-  <section id="checklistSection" class="card animate-fade" style="display:none;">
+  <section id="checklistSection" class="card" style="display:none;">
     <div class="header-row">
       <div>
         <h2 id="title"></h2>
@@ -42,9 +44,8 @@
     </div>
 
     <ul id="list" class="list"></ul>
-    <div class="mobile-hint">Drag items to reorder. Tap checkbox to mark done.</div>
+    <div class="mobile-hint">Drag to reorder — swipe right to complete, left to delete.</div>
   </section>
-
 </main>
 
 <script src="app.js"></script>
